@@ -111,10 +111,12 @@
 | 한글명 | 영문명 | 설명 |
 | --- | --- | --- |
 | 상품 | product | 주문항목을 구성하는 데이터 |
+| 이름 | displayed name | 상품판매시 사용될 제품명 |
 | 판매자 | seller | 판매자명 |
-| 재고 | inventory | 상품의 남아있는 재고로 주문상태를 결정짓는 데이터 |
+| 재고 | inventory | 주문상태를 결정짓는 데이터 |
 | 재고량 | quantity | 남아있는 재고량 |
 | 장바구니 | cart | 주문 상품을 담는 데이터 |
+| 가격 | price | 상품의 가격 |
 
 <br>
 
@@ -136,10 +138,13 @@
 
 | 한글명 | 영문명 | 설명 |
 | --- | --- | --- |
-| 결제 방식 | payment method | 주문접수시, 유저가 요청한 결제방식  |
-| 결제 상태 | payment Status | 현재 결제 상태 |
+| 결제 | payment | 결제 관련 정보 및 프로세스 |
+| 결제 금액 | amount | 가격 등을 포함한 결제를 위한 메타데이터 |
+| 결제 방식 | method | 주문접수시, 유저가 요청한 결제방식  |
+| 결제 상태 | Status | 현재 결제 상태 |
 | 결제 완료 | payment completed | 결제 방식을 통해 결제가 완료된 상태 |
 | 결제실패 | payment failed | 결제 방식을 통해 결제가 실패된 상태 |
+| 환불 | refund | 환불시, 필요한 결제 정보 데이터 |
 | 환불 처리 | refund completed | 환불 처리가 완료된 상태 |
 | 환불 실패 | refund Failed | 환불 처리가 실패한 상태 |
 
@@ -147,6 +152,36 @@
 
 
     
+</details>
+
+<details>
+<summary> 모델링 </summary>
+
+### **상품 (Product)**
+- `Product`는 식별자와 `DisplayedName`, `Seller`, `Price` 를 가진다.
+- `Product` 의 재고관련 정보는 `Inventory` 데이터를 통해 관리된다.
+- `Product` 는 `Cart` 에 담겨진다.
+- 주문시, `Cart` 에 있는 상품들의 정보가 전달된다.
+
+<br>
+
+### **주문 (Order)**
+- `Order`는 식별자와 `Items`, `Order Status` 를 가진다.
+- `Items` 의 수량은 0보다 커야한다.
+- `Items` 의 가격과 수량을 갖는다.
+- `Order`는 `Product` 의 `Inventory` 상황에 따라 진행된다.
+- `Order`는 주문대기 → 결제대기 → 주문확정 순서로 진행된다.
+- `Order Status` 는 `Payment` 와  `Inventory` 처리에의해 결정된다.
+
+  <br>  
+
+### **결제 (Payment)**
+- `Payment`는 식별자와 `Payment Status`, `Payment Method` 를 가진다.
+- `Amount`는 `Order` 정보에 의해 결정된다.
+- `Payment` 는 결과는 `Order` 상태를 결정한다.
+- `Refund`는 `Payment` 정보를 바탕으로 진행된다.
+
+
 </details>
 
 
