@@ -217,10 +217,10 @@ price  | 주문상품  가격                  | 현재 상품가격
 
 **Methods**:
 
-- `addItem(product, quantity)`: 장바구니에 상품을 추가한다.
-- `removeItem(product)`: 장바구니에서 상품을 삭제한다.
+- `addItem()`: 장바구니에 상품을 추가한다.
+- `removeItem()`: 장바구니에서 상품을 삭제한다.
 - `clearCart()`: 장바구니를 비운다.
-- `updateQuantity(product, newQuantity)`: 상품 수량을 변경한다.
+- `updateQuantity()`: 상품 수량을 변경한다.
 - `validateCart()`: 장바구니 유효성을 체크한다 (상품 재고와 상태 확인).
 - `checkExpired()`: 일주일간 주문되지 않은 장바구니를 자동 삭제한다.
 
