@@ -23,6 +23,6 @@ public class CartItem {
     )
     private Cart cart;
 
-    @Column(nullable = false)
+    @Column(name ="productId", nullable = false)
     private UUID productId;
 }

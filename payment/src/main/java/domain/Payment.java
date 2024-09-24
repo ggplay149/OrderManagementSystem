@@ -5,32 +5,31 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Table(name = "order")
+@Table(name = "payment")
 @Entity
 @Getter
 @Setter
-public class Order {
+public class Payment {
 
     @Column(name = "id", columnDefinition = "varbinary(16)")
     @Id
     private UUID id;
 
-    @Column(name="status", nullable = false)
-    private OrderStatus status;
+    @Column(name = "orderId", columnDefinition = "varbinary(16)")
+    private UUID orderId;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(
-            name = "cart_id",
-            columnDefinition = "varbinary(16)",
-            foreignKey = @ForeignKey(name = "fk_cartItem_to_cart")
-    )
-    private Cart cartId;
+    @Column(name = "amount", nullable = false)
+    private BigDecimal amount;
 
-    @Column(name="userId", nullable = false)
-    private UUID userId;
+    @Column(name = "status", nullable = false)
+    private PaymentStatus status;
+
+    @Column(name = "method", nullable = false)
+    private PaymentMethod method;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)

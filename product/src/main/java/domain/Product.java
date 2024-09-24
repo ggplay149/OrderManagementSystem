@@ -22,17 +22,17 @@ public class Product {
     @Id
     private UUID id;
 
-    @Column(name="name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name="price", nullable = false)
+    @Column(name = "price", nullable = false)
     private BigDecimal price;
 
-    @Column(name="status", nullable = false)
+    @Column(name = "status", nullable = false)
     private ProductStatus status;
 
-    @Column(name="inventoryCount", nullable = false)
-    private int inventoryCount;
+    @Column(name = "sellerId", nullable = false)
+    private UUID sellerId;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -40,7 +40,7 @@ public class Product {
 
     @CreationTimestamp
     @Column(nullable = true)
-    private  LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
 
 
 }

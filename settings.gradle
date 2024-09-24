@@ -1,5 +1,6 @@
 rootProject.name = 'order-system'
 include 'product'
-include 'cart'
 include 'order'
+include 'user'
+include 'payment'
 
