@@ -23,7 +23,7 @@ public class Payment {
     private UUID orderId;
 
     @Column(name = "amount", nullable = false)
-    private BigDecimal amount;
+    private Amount amount;
 
     @Column(name = "status", nullable = false)
     private PaymentStatus status;
@@ -36,3 +36,5 @@ public class Payment {
     private LocalDateTime createdAt;
 
 }
+
+

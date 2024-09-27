@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Table(name = "orders")
@@ -31,6 +33,10 @@ public class Order {
 
     @Column(name="userId", nullable = false)
     private UUID userId;
+
+
+    @OneToMany(mappedBy = "")
+    List<OrderItem> orderItems = new ArrayList<>();
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)

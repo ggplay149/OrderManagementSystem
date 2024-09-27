@@ -22,7 +22,7 @@ public class Inventory {
             columnDefinition = "varbinary(16)",
             foreignKey = @ForeignKey(name = "fk_inventory_to_product")
     )
-    private Product productId;
+    private Product product;
 
     @Column(name = "stock", nullable = false)
     private int stock;
