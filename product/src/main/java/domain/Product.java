@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Table(name = "product")
+@Table(name = "products")
 @Entity
 @Getter
 @Setter

@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Table(name = "inventory")
+@Table(name = "inventories")
 @Entity
 @Getter
 @Setter
@@ -25,7 +25,7 @@ public class Inventory {
     private Product productId;
 
     @Column(name = "stock", nullable = false)
-    private BigDecimal stock;
+    private int stock;
 
 
 }

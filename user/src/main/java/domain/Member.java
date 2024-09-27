@@ -10,7 +10,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Table(name = "Member")
+@Table(name = "Members")
 @Entity
 @Getter
 @Setter

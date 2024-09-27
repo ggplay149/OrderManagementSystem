@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-@Table(name = "cartItem")
+@Table(name = "cart_items")
 @Entity
 @Getter
 @Setter
