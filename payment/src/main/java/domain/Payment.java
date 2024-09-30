@@ -13,14 +13,14 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class Payment {
+public class Payment extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "orderId", columnDefinition = "varbinary(16)")
-    private UUID orderId;
+    @Column(name = "order_id")
+    private long orderId;
 
     @Column(name = "amount", nullable = false)
     private Amount amount;

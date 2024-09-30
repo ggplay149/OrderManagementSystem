@@ -14,7 +14,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class Order {
+public class Order extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,22 +24,13 @@ public class Order {
     private OrderStatus status;
 
     @ManyToOne(optional = false)
-    @JoinColumn(
-            name = "cart_id",
-            columnDefinition = "varbinary(16)",
-            foreignKey = @ForeignKey(name = "fk_cartItem_to_cart")
-    )
-    private Cart cartId;
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
-    @Column(name="userId", nullable = false)
-    private UUID userId;
+    @Column(name="user_id", nullable = false)
+    private long userId;
 
-
-    @OneToMany(mappedBy = "")
+    @OneToMany(mappedBy = "order")
     List<OrderItem> orderItems = new ArrayList<>();
-
-    @CreationTimestamp
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
 
 }

@@ -4,24 +4,18 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-import java.util.UUID;
-
 @Table(name = "inventories")
 @Entity
 @Getter
 @Setter
-public class Inventory {
+public class Inventory extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @OneToOne
-    @JoinColumn(name = "product_id",
-            columnDefinition = "varbinary(16)",
-            foreignKey = @ForeignKey(name = "fk_inventory_to_product")
-    )
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @Column(name = "stock", nullable = false)

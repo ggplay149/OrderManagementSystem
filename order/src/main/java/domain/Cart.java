@@ -12,17 +12,16 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class Cart {
+public class Cart extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "userId", nullable = false)
-    private UUID userId;
+    @Column(name = "user_id", nullable = false)
+    private long userId;
 
     @OneToMany(mappedBy = "cart")
     List<CartItem> cartItems = new ArrayList<>();
-
 
 }

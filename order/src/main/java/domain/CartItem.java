@@ -10,20 +10,16 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class CartItem {
+public class CartItem extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(
-            name = "cart_id",
-            columnDefinition = "varbinary(16)",
-            foreignKey = @ForeignKey(name = "fk_cartItem_to_cart")
-    )
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    @Column(name ="productId", nullable = false)
-    private UUID productId;
+    @Column(name ="product_id", nullable = false)
+    private long productId;
 }
