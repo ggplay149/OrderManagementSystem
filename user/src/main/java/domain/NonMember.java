@@ -1,9 +1,6 @@
 package domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,9 +13,9 @@ import java.util.UUID;
 @Setter
 public class NonMember {
 
-    @Column(name = "id", columnDefinition = "varbinary(16)")
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @Column(name = "orderId", nullable = false)
     private UUID orderId;

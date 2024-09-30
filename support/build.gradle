@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group = 'org.order-system'
-version = '1.0.0'
+group = 'org.example'
+version = 'unspecified'
 
 repositories {
     mavenCentral()

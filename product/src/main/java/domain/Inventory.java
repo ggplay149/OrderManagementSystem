@@ -13,9 +13,9 @@ import java.util.UUID;
 @Setter
 public class Inventory {
 
-    @Column(name = "id", columnDefinition = "varbinary(16)")
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @OneToOne
     @JoinColumn(name = "product_id",

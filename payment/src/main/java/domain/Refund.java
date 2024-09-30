@@ -15,9 +15,9 @@ import java.util.UUID;
 @Setter
 public class Refund {
 
-    @Column(name = "id", columnDefinition = "varbinary(16)")
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @OneToOne
     @JoinColumn(name = "payment_id",
